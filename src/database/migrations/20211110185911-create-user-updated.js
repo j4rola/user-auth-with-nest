@@ -25,6 +25,10 @@ module.exports = {
       passWord: {
         type: Sequelize.STRING,
         allowNull: false,
+      },
+      posts: {
+        type: Sequelize.STRING, 
+        allowNull: false, 
       }
     });
   },
@@ -33,3 +37,4 @@ module.exports = {
     return queryInterface.dropTable('Users');
   }
 };
+

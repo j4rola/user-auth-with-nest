@@ -13,6 +13,8 @@ export class User extends Model<User> {
 
   @Column
   passWord: string;
-  
 
+  @Column
+  posts: string; 
+  
 }
