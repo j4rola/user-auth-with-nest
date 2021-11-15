@@ -15,7 +15,7 @@ import { UserResolver } from './user/user.resolver';
 
     GraphQLModule.forRoot({
       typePaths: ['./**/*.graphql'],   
-      definitions: {
+      definitions: { 
         path: join(process.cwd(), 'src/graphql.ts'), 
         outputAs: 'class',
  
@@ -27,7 +27,7 @@ import { UserResolver } from './user/user.resolver';
       host: 'localhost',
       port: 5432,
       username: process.env.USERNAME,
-      password: process.env.PASSWORD,
+      password: process.env.PASSWORD, 
       database: process.env.DATABASE,
       models: [UserEntity],
 

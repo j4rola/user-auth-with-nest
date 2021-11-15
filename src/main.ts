@@ -7,6 +7,6 @@ async function bootstrap() {
   await app.listen(3000);
 
   let sequelize = app.get(Sequelize)
-  await sequelize.sync()
+  await sequelize.sync({force: true}) 
 } 
 bootstrap();

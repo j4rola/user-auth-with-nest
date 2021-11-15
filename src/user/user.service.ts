@@ -12,7 +12,7 @@ export class UserService {
         let userData: Partial <UserEntity> = {firstName: args.firstName, lastName: args.lastName}
         let user = await UserEntity.create(userData as any)
         return user
-    }
+    }     
     
     findAll(): User[] {
         return null
