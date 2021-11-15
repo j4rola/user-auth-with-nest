@@ -5,8 +5,10 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { User } from './user/user.model';
+import { UserEntity } from './user/user.model';
 import { UserModule } from './user/user.module';
+import { UserService } from './user/user.service';
+import { UserResolver } from './user/user.resolver';
 
 @Module({
   imports: [
@@ -14,7 +16,9 @@ import { UserModule } from './user/user.module';
     GraphQLModule.forRoot({
       typePaths: ['./**/*.graphql'],   
       definitions: {
-        path: join(process.cwd(), 'src/user/graphql.ts'),
+        path: join(process.cwd(), 'src/graphql.ts'), 
+        outputAs: 'class',
+ 
     }}),
 
     SequelizeModule.forRoot({
@@ -25,12 +29,12 @@ import { UserModule } from './user/user.module';
       username: process.env.USERNAME,
       password: process.env.PASSWORD,
       database: process.env.DATABASE,
-      models: [User],
+      models: [UserEntity],
 
     }),
     UserModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, UserService, UserResolver],
 })
 export class AppModule {}

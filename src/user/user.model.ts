@@ -1,7 +1,13 @@
-import { Column, Model, Table } from 'sequelize-typescript';
+import { AutoIncrement, Column, Model, PrimaryKey, Table } from 'sequelize-typescript'; 
 
-@Table
-export class User extends Model<User> {
+@Table({tableName:'User'})
+export class UserEntity extends Model<UserEntity> {
+
+  @PrimaryKey
+  @AutoIncrement
+  @Column
+  userKey: number;
+
   @Column
   firstName: string;
 
@@ -16,5 +22,7 @@ export class User extends Model<User> {
 
   @Column
   posts: string; 
+
+ 
   
 }

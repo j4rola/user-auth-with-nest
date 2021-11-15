@@ -1,12 +1,19 @@
 type User {
 
-    id: ID! 
-    firstname: string!
-    lastname: string!
-    email: string!
-    password: string! 
-    hasPost: [Post]
+    userKey: ID 
+    firstName: String! 
+    lastName: String!  
+    email: String!     
+    password: String! 
+    hasPost: [Post]    
 
+}
+
+input CreateUserInput {
+    firstName: String! 
+    lastName: String!  
+    email: String!     
+    password: String! 
 }
 
 type Post {
@@ -24,7 +31,7 @@ type Query {
 }
 
 type Mutation {
-  addUser(id: ID!, firstname: String!, lastname: String!, password: String!): User 
+  addUser( input: CreateUserInput): User 
 }
 
 type Mutation {
