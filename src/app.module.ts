@@ -3,18 +3,19 @@ import { join } from 'path'
 import { GraphQLModule } from '@nestjs/graphql';
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { AppController } from './app.controller';
+import { AppController } from './app.controller'; 
 import { AppService } from './app.service';
 import { UserEntity } from './user/user.model';
 import { UserModule } from './user/user.module';
 import { UserService } from './user/user.service';
 import { UserResolver } from './user/user.resolver';
 
+
 @Module({
   imports: [
 
     GraphQLModule.forRoot({
-      typePaths: ['./**/*.graphql'],   
+      typePaths: ['./**/*.graphql'],    
       definitions: { 
         path: join(process.cwd(), 'src/graphql.ts'), 
         outputAs: 'class',

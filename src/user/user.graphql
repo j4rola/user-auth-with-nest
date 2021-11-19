@@ -5,7 +5,8 @@ type User {
     lastName: String!  
     email: String!     
     password: String! 
-    hasPost: [Post]    
+    hasPost: [Post]   
+    
 
 }
 
@@ -13,6 +14,11 @@ input CreateUserInput {
     firstName: String! 
     lastName: String!  
     email: String!     
+    password: String! 
+}
+
+input ConfirmUserInput {
+    email: String! 
     password: String! 
 }
 
@@ -37,6 +43,12 @@ type Mutation {
 type Mutation {
     createPost(id: ID!, title: String!, body: String!): Post 
 }
+
+type Mutation {
+    confirmUser( input: ConfirmUserInput): User!  
+}
+
+
 
 
 

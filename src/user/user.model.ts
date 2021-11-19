@@ -1,12 +1,17 @@
 import { AutoIncrement, Column, Model, PrimaryKey, Table } from 'sequelize-typescript'; 
+import * as sequelize from 'sequelize'
+import * as bcrypt from 'bcrypt'
+import { User } from 'src/graphql';
+import { nextTick } from 'process';
+
 
 @Table({tableName:'User'})
 export class UserEntity extends Model<UserEntity> {
 
-  @PrimaryKey
+  @PrimaryKey      
   @AutoIncrement
   @Column
-  userKey: number;
+  userKey: number;  
 
   @Column
   firstName: string;
@@ -15,14 +20,21 @@ export class UserEntity extends Model<UserEntity> {
   lastName: string;
 
   @Column
-  userName: string;
+  email: string;
 
   @Column
-  passWord: string;
+  password: string;
 
   @Column
   posts: string; 
 
+  @Column
+  active: boolean; 
+
+  comparePassword: (candidatePassword: string) => boolean 
  
   
 }
+
+
+

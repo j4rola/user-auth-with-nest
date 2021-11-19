@@ -14,6 +14,11 @@ export class CreateUserInput {
     password: string;
 }
 
+export class ConfirmUserInput {
+    email: string;
+    password: string;
+}
+
 export class User {
     userKey?: Nullable<string>;
     firstName: string;
@@ -40,6 +45,8 @@ export abstract class IMutation {
     abstract addUser(input?: Nullable<CreateUserInput>): Nullable<User> | Promise<Nullable<User>>;
 
     abstract createPost(id: string, title: string, body: string): Nullable<Post> | Promise<Nullable<Post>>;
+
+    abstract confirmUser(input?: Nullable<ConfirmUserInput>): User | Promise<User>;
 }
 
 type Nullable<T> = T | null;
