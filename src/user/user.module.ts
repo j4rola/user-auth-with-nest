@@ -6,9 +6,9 @@ import { UserResolver } from './user.resolver';
 import { UserService } from './user.service'; 
 
 @Module({
-    imports: [SequelizeModule.forFeature([UserEntity])],
+    imports: [SequelizeModule.forFeature([UserEntity])], 
     // export it to use it outside this module
-    exports: [SequelizeModule],
+    exports: [SequelizeModule], 
     providers: [UserResolver, UserService] 
 })
-export class UserModule {}
+export class UserModule {}  

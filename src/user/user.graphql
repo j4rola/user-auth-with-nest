@@ -6,8 +6,6 @@ type User {
     email: String!     
     password: String! 
     hasPost: [Post]   
-    
-
 }
 
 input CreateUserInput {
@@ -23,26 +21,36 @@ input ConfirmUserInput {
 }
 
 type Post {
-    id: ID! 
-    title: String! 
-    body: String! 
-    hasUser: User! 
+    postKey: ID 
+    post: String! 
+    hasUser: User
+    userKey: ID
 }
+
+input PostInput {
+    postKey: ID
+    post: String!
+    userKey: ID
+    
+}
+
+type Mutation {
+    createPost( input: PostInput): Post 
+    logout: User 
+}
+
 
 type Query {
 
     getUsers: [User] 
-
-    getPosts: [Post]
+    getPosts: [Post] 
+    me: User
 }
 
 type Mutation {
   addUser( input: CreateUserInput): User 
 }
 
-type Mutation {
-    createPost(id: ID!, title: String!, body: String!): Post 
-}
 
 type Mutation {
     confirmUser( input: ConfirmUserInput): User!  

@@ -19,6 +19,12 @@ export class ConfirmUserInput {
     password: string;
 }
 
+export class PostInput {
+    postKey?: Nullable<string>;
+    post: string;
+    userKey?: Nullable<string>;
+}
+
 export class User {
     userKey?: Nullable<string>;
     firstName: string;
@@ -29,24 +35,28 @@ export class User {
 }
 
 export class Post {
-    id: string;
-    title: string;
-    body: string;
-    hasUser: User;
+    postKey?: Nullable<string>;
+    post: string;
+    hasUser?: Nullable<User>;
+    userKey?: Nullable<string>;
+}
+
+export abstract class IMutation {
+    abstract createPost(input?: Nullable<PostInput>): Nullable<Post> | Promise<Nullable<Post>>;
+
+    abstract logout(): Nullable<User> | Promise<Nullable<User>>;
+
+    abstract addUser(input?: Nullable<CreateUserInput>): Nullable<User> | Promise<Nullable<User>>;
+
+    abstract confirmUser(input?: Nullable<ConfirmUserInput>): User | Promise<User>;
 }
 
 export abstract class IQuery {
     abstract getUsers(): Nullable<Nullable<User>[]> | Promise<Nullable<Nullable<User>[]>>;
 
     abstract getPosts(): Nullable<Nullable<Post>[]> | Promise<Nullable<Nullable<Post>[]>>;
-}
 
-export abstract class IMutation {
-    abstract addUser(input?: Nullable<CreateUserInput>): Nullable<User> | Promise<Nullable<User>>;
-
-    abstract createPost(id: string, title: string, body: string): Nullable<Post> | Promise<Nullable<Post>>;
-
-    abstract confirmUser(input?: Nullable<ConfirmUserInput>): User | Promise<User>;
+    abstract me(): Nullable<User> | Promise<Nullable<User>>;
 }
 
 type Nullable<T> = T | null;

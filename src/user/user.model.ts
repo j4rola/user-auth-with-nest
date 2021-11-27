@@ -1,40 +1,47 @@
-import { AutoIncrement, Column, Model, PrimaryKey, Table } from 'sequelize-typescript'; 
+import { AutoIncrement, Column, Model, PrimaryKey, Table, HasMany, ForeignKey } from 'sequelize-typescript'; 
 import * as sequelize from 'sequelize'
 import * as bcrypt from 'bcrypt'
-import { User } from 'src/graphql';
+import { User } from '../graphql';
 import { nextTick } from 'process';
+import { PostEntity } from 'src/post/post.model'
 
 
 @Table({tableName:'User'})
-export class UserEntity extends Model<UserEntity> {
+export class UserEntity extends Model<UserEntity> { 
 
   @PrimaryKey      
-  @AutoIncrement
+  @AutoIncrement 
   @Column
-  userKey: number;  
+  userKey: number;   
 
   @Column
-  firstName: string;
+  firstName: string; 
 
   @Column
-  lastName: string;
+  lastName: string; 
 
   @Column
-  email: string;
+  email: string; 
 
   @Column
-  password: string;
-
-  @Column
-  posts: string; 
+  password: string;  
 
   @Column
   active: boolean; 
 
+  @HasMany( ()=> PostEntity, 'userKey') 
+  posts: PostEntity[]
+  foreignKey: 'userKey'
+
+  @ForeignKey(() => PostEntity)
+  postKey: number
+
   comparePassword: (candidatePassword: string) => boolean 
  
   
-}
+} 
+
+
 
 
 
