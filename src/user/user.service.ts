@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 
 import { InjectModel } from '@nestjs/sequelize';
 import { Injectable } from '@nestjs/common'; 
-import {  Post, PostInput, User } from '../graphql';  
+import { User } from '../graphql';  
 import { UserEntity} from './user.model'; 
 import { ConfirmUserInput } from '../graphql'; 
 import { omit } from 'lodash'

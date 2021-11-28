@@ -25,6 +25,10 @@ export class PostInput {
     userKey?: Nullable<string>;
 }
 
+export class GetPostInput {
+    userKey: string;
+}
+
 export class User {
     userKey?: Nullable<string>;
     firstName: string;
@@ -54,7 +58,7 @@ export abstract class IMutation {
 export abstract class IQuery {
     abstract getUsers(): Nullable<Nullable<User>[]> | Promise<Nullable<Nullable<User>[]>>;
 
-    abstract getPosts(): Nullable<Nullable<Post>[]> | Promise<Nullable<Nullable<Post>[]>>;
+    abstract getPosts(input?: Nullable<GetPostInput>): Nullable<Nullable<Post>[]> | Promise<Nullable<Nullable<Post>[]>>;
 
     abstract me(): Nullable<User> | Promise<Nullable<User>>;
 }

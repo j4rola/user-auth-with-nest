@@ -1,8 +1,9 @@
-import { Resolver, Mutation, Args, Context,} from '@nestjs/graphql';
+import { Resolver, Mutation, Query, Args, Context,} from '@nestjs/graphql';
 import Ctx from 'src/types/context.type'; 
 import { PostInput, Post } from '../graphql'
-import { PostEntity } from './post.model';
+//import { PostEntity } from './post.model';
 import { PostService } from './post.service';
+import { GetPostInput } from '../graphql';
 
 
 @Resolver()
@@ -14,8 +15,12 @@ export class PostResolver {
     async createPost(@Args('input') input: PostInput, @Context() context: Ctx): Promise<Post> {  
         let user = context.req.user 
         let post = this.postService.createPost(input, context) 
-        //post.userKey = user.userKey 
         return post as any 
+    }
+
+    @Query('getPosts')
+    async getPosts(@Args('input') input: GetPostInput) {
+        return this.postService.getPosts(input)
     }
    
 }

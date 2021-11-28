@@ -34,6 +34,13 @@ input PostInput {
     
 }
 
+input GetPostInput {
+   
+    userKey: ID!
+    
+}
+
+
 type Mutation {
     createPost( input: PostInput): Post 
     logout: User 
@@ -43,7 +50,7 @@ type Mutation {
 type Query {
 
     getUsers: [User] 
-    getPosts: [Post] 
+    getPosts(input: GetPostInput): [Post] 
     me: User
 }
 

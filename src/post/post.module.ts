@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Sequelize } from 'sequelize/types';
+//import { Sequelize } from 'sequelize/types';
 import { PostEntity } from './post.model';
 import { PostResolver } from './post.resolver';
 import { PostService } from 'src/post/post.service'; 
 import { UserService } from 'src/user/user.service';
-import { User } from 'src/graphql';
+//import { User } from 'src/graphql';
 import { UserEntity } from 'src/user/user.model';
 
 @Module({

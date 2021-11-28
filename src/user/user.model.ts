@@ -1,9 +1,5 @@
 import { AutoIncrement, Column, Model, PrimaryKey, Table, HasMany, ForeignKey } from 'sequelize-typescript'; 
-import * as sequelize from 'sequelize'
-import * as bcrypt from 'bcrypt'
-import { User } from '../graphql';
-import { nextTick } from 'process';
-import { PostEntity } from 'src/post/post.model'
+import { PostEntity } from 'src/post/post.model';
 
 
 @Table({tableName:'User'})
