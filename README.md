@@ -6,15 +6,6 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-This is a fully functioning backend for a user login created with Nestjs, Postgres, sequelize, and Graphql.
-
-This application allows a user to be created, login, and create a post all using the graphql playground. User's passwords are hashed using bcrypt and web tokens are implemented using jwt. 
-
-The .env file containing environment variables has been removed for security purposes. 
-
-
-
-
 
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
@@ -36,7 +27,11 @@ The .env file containing environment variables has been removed for security pur
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a fully functioning backend for a user login created with Nestjs, Postgres, sequelize, and Graphql.
+
+This application allows a user to be created, login, and create a post all using the graphql playground. User's passwords are hashed using bcrypt and web tokens are implemented using jwt. 
+
+The .env file containing environment variables has been removed for security purposes. 
 
 ## Installation
 
