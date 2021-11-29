@@ -1,7 +1,6 @@
 import { Resolver, Mutation, Query, Args, Context,} from '@nestjs/graphql';
 import Ctx from 'src/types/context.type'; 
 import { PostInput, Post } from '../graphql'
-//import { PostEntity } from './post.model';
 import { PostService } from './post.service';
 import { GetPostInput } from '../graphql';
 
